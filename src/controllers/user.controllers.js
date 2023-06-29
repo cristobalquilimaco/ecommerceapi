@@ -1,7 +1,7 @@
 const catchError = require('../utils/catchError');
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 const getAll = catchError(async(req, res) => {
     const results = await User.findAll();
@@ -12,7 +12,6 @@ const create = catchError(async(req, res) => {
     const result = await User.create(req.body);
     return res.status(201).json(result);
 });
-
 
 const remove = catchError(async(req, res) => {
     const { id } = req.params;
@@ -42,6 +41,7 @@ const login = catchError(async(req,res)=>{
     if(!isValidPassword) return res.sendStatus(401)
 
     const token = jwt.sign(
+        {user},
         process.env.TOKEN_SECRET,
         {expiresIn:"1d"}
     )
@@ -55,5 +55,5 @@ module.exports = {
     create,
     remove,
     update,
-    login,
+    login
 }

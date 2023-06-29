@@ -6,10 +6,10 @@ const routerUser = express.Router();
 
 routerUser.route('/')
     .get(verifyJWT,getAll)
-    .post(create);
+    .post(create)
 
-    routerUser.route('/login')
-    .post(login);
+routerUser.route('/login')
+    .post(login)
 
 routerUser.route('/:id')
     .delete(verifyJWT,remove)

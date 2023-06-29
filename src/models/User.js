@@ -8,7 +8,7 @@ const User = sequelize.define('user', {
         allowNull: false
     },
 
-    LastName: {
+    lastName: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -28,6 +28,7 @@ const User = sequelize.define('user', {
         type: DataTypes.STRING,
         allowNull: false
     },
+
 
 });
 
