@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const { getAll, create, getOne, remove, update } = require('../controllers/product.controllers');
-=======
 const { getAll, create, getOne, remove, update,setImages } = require('../controllers/product.controllers');
->>>>>>> master
 const express = require('express');
 const verifyJWT = require("../utils/verifyJWT")
 
@@ -17,10 +13,7 @@ routerProduct.route('/:id')
     .delete(verifyJWT,remove)
     .put(verifyJWT,update);
 
-<<<<<<< HEAD
-=======
 routerProduct.route('/:id/images')
     .post(verifyJWT, setImages)
 
->>>>>>> master
 module.exports = routerProduct;
