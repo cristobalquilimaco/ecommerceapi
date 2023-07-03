@@ -1,9 +1,6 @@
 const app = require('./app');
 const sequelize = require('./utils/connection');
-<<<<<<< HEAD
-=======
 require('./models')
->>>>>>> master
 
 const PORT = process.env.PORT || 8080;
 
@@ -18,8 +15,4 @@ const main = async () => {
     }
 }
 
-<<<<<<< HEAD
 main();
-=======
-main();
->>>>>>> master
