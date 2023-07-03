@@ -13,20 +13,46 @@ const getAll = catchError(async(req, res) => {
 
 const create = catchError(async(req, res) => {
     const userId = req.user.id
+<<<<<<< HEAD
     const{quantity,productId} = req.body
     const body = {userId,quantity,productId}
+=======
+    const {quantity,productId} = req.body
+
+    const body = {userId,quantity,productId}
+    
+>>>>>>> master
     const result = await Cart.create(body);
     return res.status(201).json(result);
 });
 
+<<<<<<< HEAD
 const remove = catchError(async(req, res) => {
     const { id } = req.params;
     await Cart.destroy({ where: {id} });
+=======
+
+const remove = catchError(async(req, res) => {
+    const { id } = req.params;
+    const userId = req.user.id
+    const result = await Cart.destroy({ 
+        where: {
+            id,
+            userId
+        } 
+    });
+   if(!result) res.sendStatus(404)
+>>>>>>> master
     return res.sendStatus(204);
 });
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
+<<<<<<< HEAD
+=======
+    delete req.body.userId
+    delete req.body.productId
+>>>>>>> master
     const result = await Cart.update(
         req.body,
         { where: {id}, returning: true }

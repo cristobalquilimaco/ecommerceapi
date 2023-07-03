@@ -3,6 +3,10 @@ const helmet = require('helmet');
 const cors = require('cors');
 const router = require('./routes');
 const errorHandler = require('./utils/errorHandler');
+<<<<<<< HEAD
+=======
+const path = require('path');
+>>>>>>> master
 require('dotenv').config();
 
 // Esta es nuestra aplicación
@@ -15,6 +19,11 @@ app.use(helmet({
 }));
 app.use(cors());
 
+<<<<<<< HEAD
+=======
+app.use(express.static(path.join(__dirname, 'public')));  // /style.css 
+
+>>>>>>> master
 app.use('/api/v1', router);
 app.get('/', (req, res) => {
     return res.send("Welcome to express!");

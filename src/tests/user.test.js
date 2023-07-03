@@ -28,11 +28,11 @@ test("GET -> 'URL_BASE', should return status code 200 and res.body to have leng
 
 test("POST -> 'URL_BASE' should return status code 201 and res.body.firstName === body.firstName", async()=>{
     const userCreate = {
-        firstName: "Jose",
-        lastName: "Quilimaco",
-        email: "quilimacox@hotmail.com",
+        firstName: "Gabi",
+        lastName: "Lopez",
+        email: "gabi@gmail.com",
         password: "12345",
-        phone: "1234567"
+        phone: "+1234567890"
     }
 
     const res = await request(app)
@@ -47,7 +47,7 @@ test("POST -> 'URL_BASE' should return status code 201 and res.body.firstName ==
 
 test("PUT -> 'BASE_URL/:id', should return status code 200 and res.body.firstName = body.firstName", async()=>{
     const userUpdate = {
-        firstName: "Jose"
+        firstName: "Gabi"
     }
 
     const res = await request(app)
@@ -62,7 +62,7 @@ test("PUT -> 'BASE_URL/:id', should return status code 200 and res.body.firstNam
 
 test("POST 'BASE_URL/login', should return status code 200 res.body.email === body.email and token defined", async()=>{
     const userLogin = {
-        email: "quilimacox@hotmail.com",
+        email: "gabi@gmail.com",
         password: "12345",
     }
 
@@ -77,7 +77,7 @@ test("POST 'BASE_URL/login', should return status code 200 res.body.email === bo
 
 test("POST 'BASE_URL/login', should return status code 401", async()=>{
     const userLogin = {
-        email: "quilimacox@hotmail.com",
+        email: "gabi@gmail.com",
         password: "invalid password",
     }
 
@@ -88,13 +88,12 @@ test("POST 'BASE_URL/login', should return status code 401", async()=>{
     expect(res.status).toBe(401)
 })
 
-
-test("DELTE -> 'BASE_URL/:id', should return status code 204", async()=>{
+test("DELETE -> 'BASE_URL/:id', should return status code 204", async()=>{
     
     const res = await request(app)
         .delete(`${BASE_URL}/${userId}`)
         .set("Authorization", `Bearer ${TOKEN}`)
 
     expect(res.status).toBe(204)
-
 })
+
